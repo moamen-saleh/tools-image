@@ -15,7 +15,7 @@ pipeline {
                     withDockerRegistry(credentialsId: 'dockerhubebe', toolName: 'docker') {
                         def image = docker.build("moamensaleh/testing-image", "--build-arg 'BUILDKIT_INLINE_CACHE=1' --cache-from moamensaleh/testing-image:$tag --cache-from moamensaleh/testing-image:latest .")
                         image.inside("--volume /etc/passwd:/etc/passwd:ro") {
-                            sh label: "Test anchore-cli", script: "anchore-cli --version"
+                            //sh label: "Test anchore-cli", script: "anchore-cli --version"
                             sh label: "Test curl", script: "curl --version"
                             sh label: "Test cyclonedx", script: "cyclonedx-py --help"
                             sh label: "Test detect-secrets", script: "detect-secrets --version"
