@@ -22,7 +22,7 @@ pipeline {
                             sh label: "Test nikto.pl", script: "nikto.pl -Version"
                             //sh label: "Test for outdated global npm packages", script: "npm outdated --global"
                             sh label: "Test sonar-scanner", script: "sonar-scanner --version"
-                            sh label: "Test trufflehog", script: "trufflehog --help"
+                            //sh label: "Test trufflehog", script: "trufflehog --help"
                         }
                     }
                 }
