@@ -36,7 +36,7 @@ pipeline {
                     if (tag == "") {
                         tag = "${BRANCH_NAME == 'master' ? 'latest' : BRANCH_NAME}"
                     }
-                    withDockerRegistry(credentialsId: 'dockerhubebe', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker') {
                         sh "docker tag moamensaleh/testing-image moamensaleh/testing-image:$tag"
                         sh "docker push moamensaleh/testing-image"
                     }
